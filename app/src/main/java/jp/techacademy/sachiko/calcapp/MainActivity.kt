@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         button.setOnClickListener(this)
+
     }
 
     override fun onClick(v: View?){
