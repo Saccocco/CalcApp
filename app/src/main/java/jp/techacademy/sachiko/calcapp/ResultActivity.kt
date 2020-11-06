@@ -10,8 +10,9 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        val result = intent.getDoubleExtra("result", 0.0)
 
-        textView.text = "result"
+        textView.text = result.toString()
 
 
     }
