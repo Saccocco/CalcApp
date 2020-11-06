@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         var result = 0.0
 
         if(editText1.text.toString() == "" || editText2.text.toString() == "" ){
-            Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(v, "数値を入力してください", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Action"){
                     Log.d("UI_PARTS", "Snackbarをタップした")
                 }.show()
@@ -45,12 +45,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 result = num1 * num2
             }
             else if(v.id == R.id.buttonDivide) {
-                result = num1 / num2
+                if (num2 == 0.0) {
+                    Snackbar.make(v, "0で割ることはできません", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Action") {
+                            Log.d("UI_PARTS", "Snackbarをタップした")
+                        }.show()
+                    return
+                }
+                else {
+                    result = num1 / num2
+
+                }
             }
 
+            intent.putExtra("result", result)
+            startActivity(intent)
         }
-        intent.putExtra("result", result)
-        startActivity(intent)
+
     }
 
 }
